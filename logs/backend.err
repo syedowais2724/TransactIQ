@@ -1,0 +1,99 @@
+INFO:     Started server process [24700]
+INFO:     Waiting for application startup.
+2026-06-09 19:34:56,151 - app.main_local - INFO - Initializing database...
+2026-06-09 19:34:56,333 - app.main_local - INFO - Database initialized successfully
+2026-06-09 19:34:56,333 - app.main_local - INFO - Running in LOCAL MODE (synchronous processing)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-06-09 19:38:54,072 - app.main_local - INFO - Processing job 3 synchronously...
+2026-06-09 19:38:54,076 - app.main_local - INFO - Loading CSV...
+2026-06-09 19:38:54,099 - app.main_local - INFO - Cleaning data...
+2026-06-09 19:38:54,100 - app.utils.data_cleaner - INFO - Starting data cleaning on 95 rows...
+2026-06-09 19:38:54,101 - app.utils.data_cleaner - WARNING - Found 4 missing transaction IDs, generating fallbacks
+2026-06-09 19:38:54,117 - app.utils.data_cleaner - WARNING - Replaced 14 duplicate transaction IDs with fallbacks
+2026-06-09 19:38:54,117 - app.utils.data_cleaner - INFO - Cleaning amounts for 95 rows...
+2026-06-09 19:38:54,117 - app.utils.data_cleaner - INFO - Amount statistics - Total: 1489695.74, Mean: 15681.01, Median: 8962.10
+2026-06-09 19:38:54,132 - app.utils.data_cleaner - INFO - Found 15 rows with missing categories (will be classified by AI)
+2026-06-09 19:38:54,132 - app.utils.data_cleaner - INFO - Removed 10 duplicate transactions
+2026-06-09 19:38:54,132 - app.utils.data_cleaner - INFO - Data cleaning completed: 95 -> 85 rows
+2026-06-09 19:38:54,132 - app.utils.data_cleaner - INFO -   - Transaction IDs generated: 14
+2026-06-09 19:38:54,132 - app.utils.data_cleaner - INFO -   - Missing categories: 15
+2026-06-09 19:38:54,132 - app.utils.data_cleaner - INFO -   - Duplicates removed: 10
+2026-06-09 19:38:54,132 - app.utils.data_cleaner - INFO -   - Invalid rows removed: 0
+2026-06-09 19:38:54,148 - app.main_local - INFO - Detecting anomalies...
+2026-06-09 19:38:54,148 - app.utils.anomaly_detector - INFO - Detected 5 amount-based anomalies
+2026-06-09 19:38:54,148 - app.utils.anomaly_detector - INFO - Detected 0 currency-based anomalies
+2026-06-09 19:38:54,148 - app.utils.anomaly_detector - INFO - Total anomalies detected: 5
+2026-06-09 19:38:54,148 - app.main_local - INFO - Classifying categories with AI...
+2026-06-09 19:38:54,164 - app.services.processing_service - INFO - ===== CATEGORY CLASSIFICATION START =====
+2026-06-09 19:38:54,164 - app.services.processing_service - INFO - Total rows: 85
+2026-06-09 19:38:54,164 - app.services.processing_service - INFO - Rows sent to Gemini: 13
+2026-06-09 19:38:54,164 - app.services.gemini_service - INFO - Initializing Gemini with API key: AQ.Ab8RN6ImQGXs...
+2026-06-09 19:38:54,539 - app.services.gemini_service - INFO - \u2713 Gemini service initialized (NEW API, model: gemini-2.0-flash-exp)
+2026-06-09 19:38:54,539 - app.services.gemini_service - INFO - Classifying 13 transactions in batches...
+2026-06-09 19:38:54,539 - app.services.gemini_service - INFO - Processing batch 1/2 (10 transactions)
+2026-06-09 19:38:54,539 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-06-09 19:38:54,769 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent "HTTP/1.1 404 Not Found"
+2026-06-09 19:38:54,769 - app.services.gemini_service - WARNING - Attempt 1/3 failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+2026-06-09 19:38:54,769 - app.services.gemini_service - INFO - Retrying in 1s...
+2026-06-09 19:38:55,772 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-06-09 19:38:55,885 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent "HTTP/1.1 404 Not Found"
+2026-06-09 19:38:55,885 - app.services.gemini_service - WARNING - Attempt 2/3 failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+2026-06-09 19:38:55,885 - app.services.gemini_service - INFO - Retrying in 2s...
+2026-06-09 19:38:57,890 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-06-09 19:38:58,001 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent "HTTP/1.1 404 Not Found"
+2026-06-09 19:38:58,001 - app.services.gemini_service - WARNING - Attempt 3/3 failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+2026-06-09 19:38:58,001 - app.services.gemini_service - ERROR - All 3 attempts failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+2026-06-09 19:38:58,001 - app.services.gemini_service - ERROR - Batch classification failed completely for 10 transactions
+2026-06-09 19:38:58,509 - app.services.gemini_service - INFO - Processing batch 2/2 (3 transactions)
+2026-06-09 19:38:58,515 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-06-09 19:38:58,701 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent "HTTP/1.1 404 Not Found"
+2026-06-09 19:38:58,701 - app.services.gemini_service - WARNING - Attempt 1/3 failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+2026-06-09 19:38:58,701 - app.services.gemini_service - INFO - Retrying in 1s...
+2026-06-09 19:38:59,710 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-06-09 19:38:59,900 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent "HTTP/1.1 404 Not Found"
+2026-06-09 19:38:59,900 - app.services.gemini_service - WARNING - Attempt 2/3 failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+2026-06-09 19:38:59,900 - app.services.gemini_service - INFO - Retrying in 2s...
+2026-06-09 19:39:01,909 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-06-09 19:39:02,050 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent "HTTP/1.1 404 Not Found"
+2026-06-09 19:39:02,050 - app.services.gemini_service - WARNING - Attempt 3/3 failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+2026-06-09 19:39:02,050 - app.services.gemini_service - ERROR - All 3 attempts failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+2026-06-09 19:39:02,050 - app.services.gemini_service - ERROR - Batch classification failed completely for 3 transactions
+2026-06-09 19:39:02,050 - app.services.gemini_service - INFO - Batch classification complete: 13 results
+2026-06-09 19:39:02,050 - app.services.processing_service - INFO - Gemini responses received: 13
+2026-06-09 19:39:02,050 - app.services.processing_service - INFO - Gemini response sample: txn_id=TXN1000 category=Other success=False
+2026-06-09 19:39:02,050 - app.services.processing_service - INFO - Gemini response sample: txn_id=TXN1077 category=Other success=False
+2026-06-09 19:39:02,066 - app.services.processing_service - INFO - Gemini response sample: txn_id=AUTO_TXN_0002 category=Other success=False
+2026-06-09 19:39:02,066 - app.services.processing_service - INFO - Gemini response sample: txn_id=TXN1020 category=Other success=False
+2026-06-09 19:39:02,067 - app.services.processing_service - INFO - Gemini response sample: txn_id=TXN1013 category=Other success=False
+2026-06-09 19:39:02,067 - app.services.processing_service - INFO - Rows updated successfully after Gemini classification: 13
+2026-06-09 19:39:02,067 - app.services.processing_service - INFO - ===== FINAL CATEGORY DISTRIBUTION =====
+2026-06-09 19:39:02,067 - app.services.processing_service - INFO -   Shopping: 17 (20.0%)
+2026-06-09 19:39:02,067 - app.services.processing_service - INFO -   Travel: 14 (16.5%)
+2026-06-09 19:39:02,067 - app.services.processing_service - INFO -   Food: 13 (15.3%)
+2026-06-09 19:39:02,067 - app.services.processing_service - INFO -   Other: 13 (15.3%)
+2026-06-09 19:39:02,067 - app.services.processing_service - INFO -   Transport: 11 (12.9%)
+2026-06-09 19:39:02,067 - app.services.processing_service - INFO -   Utilities: 9 (10.6%)
+2026-06-09 19:39:02,067 - app.services.processing_service - INFO -   Entertainment: 5 (5.9%)
+2026-06-09 19:39:02,067 - app.services.processing_service - INFO -   Cash Withdrawal: 3 (3.5%)
+2026-06-09 19:39:02,067 - app.main_local - INFO - Storing transactions...
+2026-06-09 19:39:02,117 - app.services.processing_service - INFO - Stored 85 transactions for job 3
+2026-06-09 19:39:02,117 - app.main_local - INFO - Generating AI summary...
+2026-06-09 19:39:02,117 - app.services.gemini_service - INFO - Initializing Gemini with API key: AQ.Ab8RN6ImQGXs...
+2026-06-09 19:39:02,167 - app.services.gemini_service - INFO - \u2713 Gemini service initialized (NEW API, model: gemini-2.0-flash-exp)
+2026-06-09 19:39:02,167 - app.services.gemini_service - INFO - Generating AI summary...
+2026-06-09 19:39:02,167 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-06-09 19:39:02,617 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent "HTTP/1.1 404 Not Found"
+2026-06-09 19:39:02,733 - app.services.gemini_service - WARNING - Attempt 1/3 failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+2026-06-09 19:39:02,733 - app.services.gemini_service - INFO - Retrying in 1s...
+2026-06-09 19:39:03,742 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-06-09 19:39:03,833 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent "HTTP/1.1 404 Not Found"
+2026-06-09 19:39:03,849 - app.services.gemini_service - WARNING - Attempt 2/3 failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+2026-06-09 19:39:03,849 - app.services.gemini_service - INFO - Retrying in 2s...
+2026-06-09 19:39:05,850 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-06-09 19:39:05,949 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent "HTTP/1.1 404 Not Found"
+2026-06-09 19:39:05,949 - app.services.gemini_service - WARNING - Attempt 3/3 failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+2026-06-09 19:39:05,949 - app.services.gemini_service - ERROR - All 3 attempts failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+2026-06-09 19:39:05,949 - app.services.gemini_service - ERROR - Failed to generate summary after retries
+2026-06-09 19:39:05,966 - app.services.processing_service - INFO - Stored summary for job 3
+2026-06-09 19:39:05,966 - app.main_local - INFO - Job 3 completed successfully

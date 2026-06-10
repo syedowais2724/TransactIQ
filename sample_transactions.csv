@@ -1,0 +1,22 @@
+txn_id,date,merchant,amount,currency,status,category,account_id,notes
+TXN001,15/01/2024,Starbucks,$5.50,USD,completed,,ACC001,Morning coffee
+TXN002,16-01-2024,Swiggy,₹500,INR,completed,Food,ACC001,Lunch order
+TXN003,2024-01-17,Amazon,₹2500,INR,completed,Shopping,ACC002,Books purchase
+TXN004,18/01/2024,Ola,$15.00,USD,completed,,ACC001,Cab ride
+TXN005,19-01-2024,Netflix,₹650,INR,completed,Entertainment,ACC002,Monthly subscription
+TXN006,20/01/2024,IRCTC,₹1200,INR,completed,Travel,ACC001,Train ticket
+TXN007,21-01-2024,Reliance Digital,₹45000,INR,completed,Shopping,ACC002,Laptop purchase
+TXN008,22/01/2024,Zomato,$8.50,USD,completed,,ACC001,Dinner
+TXN009,23-01-2024,Big Bazaar,₹3500,INR,completed,Shopping,ACC001,Groceries
+TXN010,24/01/2024,Uber,₹250,INR,completed,Transport,ACC002,Cab ride
+TXN011,25-01-2024,McDonald's,₹400,INR,completed,Food,ACC001,Fast food
+TXN012,26/01/2024,Shell Petrol,₹3000,INR,completed,,ACC002,Fuel refill
+TXN013,27-01-2024,Swiggy,$25.00,USD,completed,,ACC001,Food delivery
+TXN014,28/01/2024,BookMyShow,₹800,INR,completed,Entertainment,ACC001,Movie tickets
+TXN015,29-01-2024,ATM Withdrawal,₹10000,INR,completed,Cash Withdrawal,ACC002,Cash needed
+TXN001,15/01/2024,Starbucks,$5.50,USD,completed,,ACC001,Morning coffee
+TXN016,30/01/2024,Airtel,₹699,INR,completed,Utilities,ACC001,Mobile recharge
+TXN017,31-01-2024,Dominos Pizza,₹850,INR,completed,Food,ACC002,Pizza party
+TXN018,01/02/2024,Flipkart,₹15000,INR,completed,Shopping,ACC001,Electronics
+TXN019,02-02-2024,IRCTC,$50.00,USD,completed,,ACC002,Flight ticket
+TXN020,03/02/2024,Ola,₹180,INR,completed,Transport,ACC001,Office commute
